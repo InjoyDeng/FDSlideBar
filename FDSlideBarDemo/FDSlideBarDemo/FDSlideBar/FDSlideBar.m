@@ -50,12 +50,14 @@
 }
 
 - (void)setItemColor:(UIColor *)itemColor {
+    _itemColor = itemColor;
     for (FDSlideBarItem *item in _items) {
         [item setItemTitleColor:itemColor];
     }
 }
 
 - (void)setItemSelectedColor:(UIColor *)itemSelectedColor {
+    _itemSelectedColor = itemSelectedColor;
     for (FDSlideBarItem *item in _items) {
         [item setItemSelectedTitleColor:itemSelectedColor];
     }
@@ -107,6 +109,7 @@
     CGFloat itemX = 0;
     for (NSString *title in _itemsTitle) {
         FDSlideBarItem *item = [[FDSlideBarItem alloc] init];
+        [self updateItemStyle:item];
         item.delegate = self;
         
         // Init the current item's frame
@@ -131,6 +134,17 @@
     
     // Set the frame of sliderView by the selected item
     _sliderView.frame = CGRectMake(0, self.frame.size.height - SLIDER_VIEW_HEIGHT, firstItem.frame.size.width, SLIDER_VIEW_HEIGHT);
+}
+
+- (void)updateItemStyle:(FDSlideBarItem *)item {
+    //update itemFontSize
+    if (self.itemFontSize != 0) [item setItemTitleFont:self.itemFontSize];
+    //update itemSelectedFontSize
+    if (self.itemSelectedFontSize != 0) [item setItemSelectedTileFont:self.itemSelectedFontSize];
+    //update self.itemColor
+    if (self.itemColor) [item setItemTitleColor:self.itemColor];
+    //update self.itemSelectedColor
+    if (self.itemSelectedColor) [item setItemSelectedTitleColor:self.itemSelectedColor];
 }
 
 - (void)scrollToVisibleItem:(FDSlideBarItem *)item {

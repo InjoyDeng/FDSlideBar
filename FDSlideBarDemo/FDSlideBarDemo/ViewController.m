@@ -40,9 +40,6 @@
     FDSlideBar *sliderBar = [[FDSlideBar alloc] init];
     sliderBar.backgroundColor = [UIColor colorWithRed:0 / 255.0 green:128 / 255.0 blue:128 / 255.0 alpha:1.0];
     
-    // Init the titles of all the item
-    sliderBar.itemsTitle = @[@"要闻", @"视频", @"上海", @"娱乐", @"体育NBA", @"财经", @"科技", @"社会", @"军事", @"时尚", @"汽车", @"游戏", @"图片", @"股票"];
-    
     // Set some style to the slideBar
     sliderBar.itemColor = [UIColor whiteColor];
     sliderBar.itemSelectedColor = [UIColor orangeColor];
@@ -54,6 +51,9 @@
     }];
     [self.view addSubview:sliderBar];
     _slideBar = sliderBar;
+    
+    // Init the titles of all the item
+    sliderBar.itemsTitle = @[@"要闻", @"视频", @"上海", @"娱乐", @"体育NBA", @"财经", @"科技", @"社会", @"军事", @"时尚", @"汽车", @"游戏", @"图片", @"股票"];
 }
 
 // Set up a tableView to show the content
