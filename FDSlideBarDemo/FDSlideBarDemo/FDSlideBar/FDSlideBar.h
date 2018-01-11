@@ -21,6 +21,12 @@ typedef void(^FDSlideBarItemSelectedCallback)(NSUInteger idx);
 // The selected item's text color
 @property (strong, nonatomic) UIColor *itemSelectedColor;
 
+// All the item's font size of the normal state
+@property (assign, nonatomic) CGFloat itemFontSize;
+
+// All the item's font size of the selected state
+@property (assign, nonatomic) CGFloat itemSelectedFontSize;
+
 // The slider color
 @property (strong, nonatomic) UIColor *sliderColor;
 

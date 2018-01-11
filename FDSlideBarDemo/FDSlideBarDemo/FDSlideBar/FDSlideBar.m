@@ -71,6 +71,19 @@
     _selectedItem = selectedItem;
 }
 
+- (void)setItemFontSize:(CGFloat)itemFontSize {
+    _itemFontSize = itemFontSize;
+    for (FDSlideBarItem *item in _items) {
+        [item setItemTitleFont:itemFontSize];
+    }
+}
+
+- (void)setItemSelectedFontSize:(CGFloat)itemSelectedFontSize {
+    _itemSelectedFontSize = itemSelectedFontSize;
+    for (FDSlideBarItem *item in _items) {
+        [item setItemSelectedTileFont:itemSelectedFontSize];
+    }
+}
 
 #pragma - mark Private
 
