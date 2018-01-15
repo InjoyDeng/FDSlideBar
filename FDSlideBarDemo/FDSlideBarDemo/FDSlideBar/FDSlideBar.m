@@ -106,6 +106,7 @@
 }
 
 - (void)setupItems {
+    _scrollView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     CGFloat itemX = 0;
     for (NSString *title in _itemsTitle) {
         FDSlideBarItem *item = [[FDSlideBarItem alloc] init];
@@ -113,7 +114,13 @@
         item.delegate = self;
         
         // Init the current item's frame
-        CGFloat itemW = [FDSlideBarItem widthForTitle:title];
+        CGFloat itemW;
+        if (_itemFontSize > 0) {
+            itemW = [FDSlideBarItem widthForTitle:title whitFontSize:_itemFontSize];
+        } else {
+            itemW = [FDSlideBarItem widthForTitle:title];
+        }
+        
         item.frame = CGRectMake(itemX, 0, itemW, CGRectGetHeight(_scrollView.frame));
         [item setItemTitle:title];
         [_items addObject:item];
@@ -133,7 +140,7 @@
     _selectedItem = firstItem;
     
     // Set the frame of sliderView by the selected item
-    _sliderView.frame = CGRectMake(0, self.frame.size.height - SLIDER_VIEW_HEIGHT, firstItem.frame.size.width, SLIDER_VIEW_HEIGHT);
+    _sliderView.frame = CGRectMake(0, _scrollView.frame.size.height - SLIDER_VIEW_HEIGHT, firstItem.frame.size.width, SLIDER_VIEW_HEIGHT);
 }
 
 - (void)updateItemStyle:(FDSlideBarItem *)item {

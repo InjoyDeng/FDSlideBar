@@ -39,7 +39,6 @@
 - (void)setupSlideBar {
     FDSlideBar *sliderBar = [[FDSlideBar alloc] init];
     sliderBar.backgroundColor = [UIColor colorWithRed:0 / 255.0 green:128 / 255.0 blue:128 / 255.0 alpha:1.0];
-    
     // Set some style to the slideBar
     sliderBar.itemColor = [UIColor whiteColor];
     sliderBar.itemSelectedColor = [UIColor orangeColor];

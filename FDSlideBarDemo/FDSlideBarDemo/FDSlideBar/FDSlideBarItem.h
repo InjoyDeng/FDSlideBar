@@ -23,6 +23,8 @@
 
 + (CGFloat)widthForTitle:(NSString *)title;
 
++ (CGFloat)widthForTitle:(NSString *)title whitFontSize:(CGFloat)size;
+
 @end
 
 @protocol FDSlideBarItemDelegate <NSObject>

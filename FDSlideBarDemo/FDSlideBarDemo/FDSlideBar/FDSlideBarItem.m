@@ -118,13 +118,16 @@
 #pragma mark - Public Class Method
 
 + (CGFloat)widthForTitle:(NSString *)title {
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:DEFAULT_TITLE_FONTSIZE]};
-    CGSize size = [title boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
-    size.width = ceil(size.width) + HORIZONTAL_MARGIN * 2;
-    
-    return size.width;
+    return [FDSlideBarItem widthForTitle:title whitFontSize:DEFAULT_TITLE_FONTSIZE];
 }
 
++ (CGFloat)widthForTitle:(NSString *)title whitFontSize:(CGFloat)size {
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:size]};
+    CGSize textSize = [title boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    textSize.width = ceil(textSize.width) + HORIZONTAL_MARGIN * 2;
+    
+    return textSize.width;
+}
 #pragma mark - Responder
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
