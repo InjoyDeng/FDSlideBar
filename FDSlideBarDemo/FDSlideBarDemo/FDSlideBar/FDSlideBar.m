@@ -42,6 +42,15 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self= [super initWithCoder:aDecoder]) {
+        _items = [NSMutableArray array];
+        [self initScrollView];
+        [self initSliderView];
+    }
+    return self;
+}
+
 #pragma - mark Custom Accessors
 
 - (void)setItemsTitle:(NSArray *)itemsTitle {
