@@ -121,6 +121,9 @@
             itemW = [FDSlideBarItem widthForTitle:title];
         }
         
+        if (itemW * _itemsTitle.count < self.frame.size.width)
+            itemW = self.frame.size.width / _itemsTitle.count;
+        
         item.frame = CGRectMake(itemX, 0, itemW, CGRectGetHeight(_scrollView.frame));
         [item setItemTitle:title];
         [_items addObject:item];
