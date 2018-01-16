@@ -30,6 +30,9 @@ typedef void(^FDSlideBarItemSelectedCallback)(NSUInteger idx);
 // The slider color
 @property (strong, nonatomic) UIColor *sliderColor;
 
+// tile item to the view.
+@property (assign, nonatomic) BOOL isTile;
+
 // Add the callback deal when a slide bar item be selected
 - (void)slideBarItemSelectedCallback:(FDSlideBarItemSelectedCallback)callback;
 

@@ -124,14 +124,15 @@
         
         // Init the current item's frame
         CGFloat itemW;
-        if (_itemFontSize > 0) {
-            itemW = [FDSlideBarItem widthForTitle:title whitFontSize:_itemFontSize];
-        } else {
-            itemW = [FDSlideBarItem widthForTitle:title];
-        }
-        
-        if (itemW * _itemsTitle.count < self.frame.size.width)
+        if (self.isTile) {
             itemW = self.frame.size.width / _itemsTitle.count;
+        } else {
+            if (_itemFontSize > 0) {
+                itemW = [FDSlideBarItem widthForTitle:title whitFontSize:_itemFontSize];
+            } else {
+                itemW = [FDSlideBarItem widthForTitle:title];
+            }
+        }
         
         item.frame = CGRectMake(itemX, 0, itemW, CGRectGetHeight(_scrollView.frame));
         [item setItemTitle:title];
