@@ -55,6 +55,7 @@
 
 - (void)setItemsTitle:(NSArray *)itemsTitle {
     _itemsTitle = itemsTitle;
+    [self.items removeAllObjects];
     [self setupItems];
 }
 
